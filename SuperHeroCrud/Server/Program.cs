@@ -1,6 +1,8 @@
 ﻿global using SuperHeroCrud.Shared;
-global using SuperHeroCrud.Client.Services.SuperHeroService;
+using SuperHeroCrud.Client;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<ISuperheroService, SuperheroService>();
+
 
 var app = builder.Build();
 

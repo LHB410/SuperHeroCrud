@@ -4,7 +4,7 @@
 
 <h3>Super Heroes</h3>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>First Name</th>
@@ -15,11 +15,25 @@
         </tr>
     </thead>
     <tbody>
-
+        @foreach (var hero in SuperheroService.Heroes)
+            {
+        <tr>
+            <td>@hero.firstName</td>
+            <td>@hero.lastName</td>
+            <td>@hero.heroName</td>
+            <td>@hero.Comic.Name</td>
+            <td>
+                @*button*@
+            </td>
+        </tr>
+            }
     </tbody>
 </table>
 
 @code {
-
+    protected override async Task OnInitializedAsync()
+    {
+        await SuperheroService.GetSuperHeroes();
+    }
 }
 
